@@ -7,4 +7,11 @@
 .material-icons {
   cursor: pointer;
   color: red;
+  margin-right: 6px;
+  width: 30px;
+}
+.vote-box {
+  display: flex;
+  align-items: center;
+  width: 50px;
 }

@@ -7,11 +7,14 @@ import SongList from "./components/SongList";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import App from "./components/App";
 import SongCreate from "./components/SongCreate";
+import SongDetail from "./components/SongDetail";
 import "./style/style.css";
 
 const client = new ApolloClient({
   uri: "/graphql",
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    dataIdFromObject: (o) => o.id,
+  }),
 });
 
 const router = createHashRouter([
@@ -28,6 +31,15 @@ const router = createHashRouter([
     element: (
       <App>
         <SongCreate />
+      </App>
+    ),
+  },
+  {
+    path: "songs/:id",
+
+    element: (
+      <App>
+        <SongDetail />
       </App>
     ),
   },

@@ -1,10 +1,11 @@
 import React from "react";
 import { graphql } from "react-apollo";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import query from "../queries/fetchSongs";
 import { gql } from "graphql-tag";
 
 const SongList = (props) => {
+  const navigate = useNavigate();
   const HandleClick = async (id) => {
     await props.mutate({
       variables: {
@@ -16,7 +17,11 @@ const SongList = (props) => {
   const renderSongs = () => {
     return props.data.songs.map((song) => {
       return (
-        <li key={song.id} className="collection-item">
+        <li
+          key={song.id}
+          className="collection-item"
+          onClick={() => navigate(`/songs/${song.id}`)}
+        >
           {song.title}
           <i className="material-icons" onClick={() => HandleClick(song.id)}>
             delete
