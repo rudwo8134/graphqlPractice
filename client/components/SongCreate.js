@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import query from "../queries/fetchSongs";
 
 const SongCreate = (props) => {
   const [title, setTitle] = useState("");
   const navigate = useNavigate();
+  const lol = "lol";
   const submitHandler = async (e) => {
     e.preventDefault();
     try {

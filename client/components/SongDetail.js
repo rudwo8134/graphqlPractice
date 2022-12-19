@@ -39,6 +39,7 @@ const SongDetail = (props) => {
   );
 };
 
+
 const mutation = gql`
   mutation AddLyrics($id: ID, $content: String) {
     addLyricToSong(songId: $id, content: $content) {
